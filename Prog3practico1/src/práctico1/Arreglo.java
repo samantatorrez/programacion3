@@ -9,11 +9,18 @@ public class Arreglo implements Lista{
 	
 	public Arreglo(int n){
 		this.arreglo= new int[n];
+		for(int i = 0; i<n; i++) {
+			arreglo[i] = (int)(Math.floor(Math.random() * 10) + 1);
+		}
+	}
+	
+	public int get(int i) {
+		return arreglo[i];
 	}
 	
 	@Override
 	public void insert(Object o) {
-		this.arreglo.
+		// TODO Auto-generated method stub
 	}
 
 	@Override

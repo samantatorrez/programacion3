@@ -14,7 +14,8 @@ public class ListaOrdenada extends ListaSimple {
 
 	@Override
 	// si la lista esta vacia entonces es first
-	// recorre la lista hasta que encuentra que hay un valor menor e inserta el nodo
+	// sino recorre la lista hasta que encuentra que hay un valor menor e inserta el nodo
+	// sino agrega al final
 	public void insert(Object o) {
 		Nodo tmp = new Nodo(o,null);
         if(this.tamaño==0) {
@@ -45,6 +46,7 @@ public class ListaOrdenada extends ListaSimple {
 	}
 
 	// como se sabe que los elementos vienen ordenados se inserta al final 
+	// se podría mejorar teniendo un puntero al final de la lista
 	public void insertLast(Object o) {
 		Nodo tmp = new Nodo(o,null);
 		if (first == null) {
