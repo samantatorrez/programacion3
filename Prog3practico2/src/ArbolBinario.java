@@ -29,7 +29,7 @@ public class ArbolBinario implements Arbol{
 		return this.root;
 	}
 
-	@Override // BUSQUEDA O(log n)
+	@Override // BUSQUEDA O(h)
 	public boolean hasElem(Object e) {
 		return hasElem((Integer) e, root);
 	}
@@ -53,7 +53,7 @@ public class ArbolBinario implements Arbol{
 		return root == null;
 	}
 
-	@Override // O(log h)
+	@Override // O(h)
 	public void insert(Object e) {
 		Nodo nuevoNodo = new Nodo((Integer) e,null,null);
 		if (root == null) {
@@ -80,10 +80,15 @@ public class ArbolBinario implements Arbol{
 
 	@Override
 	public boolean delete(Object e) {
-		return true;// delete((Integer) e, root);
-		
+		return true;
+		//to do
+	/*	if(root==null) {
+			return false;
+		}
+		return  delete((Integer) e, root) != null ? true : false;
+		*/
 	}
-
+/*
 	private Integer getNMI(Nodo actual) {
 		if(actual.isLeaf()) {
 			return actual.getElement();
@@ -92,15 +97,16 @@ public class ArbolBinario implements Arbol{
 		}
 	}
 	private Nodo delete(Integer e, Nodo actual) {
-		if(actual != null && actual.getElement().equals(e)) {
-			if(actual.isLeaf()) {
-				return null;
-			} else {
-				Integer nmi= getNMI(actual);
-				actual.setElement(nmi);
-				actual.setRight(delete(nmi,actual.getRight()));
-				return actual;
-			}
+		if(actual != null) {
+			if(actual.getElement().equals(e)) {
+				if(actual.isLeaf()) {
+					return null;
+				} else {
+					Integer nmi= getNMI(actual.getRight());
+					actual.setElement(nmi);
+					actual.setRight(delete(nmi,actual.getRight()));
+					return actual;
+				}
 		} else {
 			if(e < actual.getElement()) {
 				actual.setLeft(delete(e,actual.getLeft()));
@@ -108,16 +114,21 @@ public class ArbolBinario implements Arbol{
 				actual.setRight(delete(e,actual.getRight()));
 			}
 		}
+		}
 		return actual;
+		}
+*/		
 		
-	}
+	
 
-	@Override // O(1)
+	@Override 
 	public int getHeight() {
-		return this.level;
+		//to do
+		return 0;
+		//return getHeight(root);
 	}
 	
-	private int getHeight( Nodo actual) {
+	/*private int getHeight( Nodo actual) {
 		if(actual == null) {
 			return -1;
 		} 
@@ -126,9 +137,9 @@ public class ArbolBinario implements Arbol{
 
 	private int max(int height, int height2) {
 		if(height < height2) {
-			return height;
-		} return height2;
-	}
+			return height2;
+		} return height;
+	}*/
 
 	@Override // O(n)
 	public void printPosOrder() {
@@ -170,7 +181,7 @@ public class ArbolBinario implements Arbol{
 		}
 	}
 
-	@Override // O(1) enumerator
+	@Override // 
 	public List getLongestBranch() {
 		// TODO Auto-generated method stub
 		return null;

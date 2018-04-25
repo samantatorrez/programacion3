@@ -15,7 +15,7 @@ public class main {
 		//System.out.println(vacio.isEmpty());
 		//System.out.println(bst.isEmpty());
 		//hasElem
-		System.out.println(bst.hasElem(20));
+		//System.out.println(bst.hasElem(20));
 	}
 
 }
