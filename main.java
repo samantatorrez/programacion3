@@ -40,8 +40,9 @@ public class main {
 		Tablero hijo;
 		for(Integer candidato: candidatos){
 			hijo=t.copy();
-			hijo.addElement(candidato);
-			hijos.add(hijo);
+			if(hijo.addElement(candidato)){
+				hijos.add(hijo);
+			}
 		}
 		return hijos;
 	}
