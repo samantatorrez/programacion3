@@ -5,14 +5,14 @@ public class main {
 		if(solucion(t,s)){ 
 			 t.print();
 		} else {
-			for(int i=0;i<candidatos.length;i++) {
-				if(candidatos[i]==0) {
-					if(!poda(t,s)){
-						Tablero siguiente = t.copy();
-						candidatos[i]=1;
-						siguiente.addElement(i);
-						backtracking(siguiente,s,candidatos);
-						candidatos[i]=0;
+			if(!poda(t,s)){
+				for(int i=0;i<candidatos.length;i++) {
+					if(candidatos[i]==0) {
+							candidatos[i]=1;
+							t.addElement(i);
+							backtracking(t,s,candidatos);
+							candidatos[i]=0;
+							t.deleteElement(i);
 					}
 				}
 			}

@@ -104,4 +104,18 @@ public class Tablero {
 		}
 		return true;
 	}
+	public void deleteElement(int k) {
+		// TODO Auto-generated method stub
+		outerloop:
+		for(int i = 0; i< size; i++){
+			for(int j = 0; j< size; j++){
+				if(tablero[i][j]==k){
+					tablero[i][j]=-1;
+					sumColum[j]=sumColum[j]-k;
+					sumFila[i]=sumFila[i]-k;
+					break outerloop;
+				}
+			}
+		}
+	}
 }
